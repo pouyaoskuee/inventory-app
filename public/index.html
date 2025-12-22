@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>inventory</title>
+    <link rel="stylesheet" href="./build/tailwind.css">
+</head>
+<body>
+<div class="bg-slate-800 w-screen h-max">
+
+    <div class=" bg-slate-700 w-screen flex flex-row justify-center items-center p-2 gap-x-2 mb-8" >
+        <h1 class="text-4xl font-bold text-white">inventory app with tailwind & js</h1>
+        <span class=" bg-slate-500 w-7 h-7 text-zinc-50 border-solid border-2 rounded-full text-center"  >7</span>
+    </div>
+
+    <div class=" container max-w-screen-sm mx-auto flex flex-col gap-y-2">
+        <div class="text-xl text-slate-300 mb-5 " >
+            <h2 class="mb-3">add new category</h2>
+            <form id="categoryForm" class="flex flex-col gap-y-3 bg-slate-700 p-4 rounded-xl">
+                <div class="flex flex-col gap-y-2">
+                    <label class="text-slate-400 text-xs" for="categoryName">category title</label>
+                    <input class="w-44 rounded-lg bg-transparent border border-slate-500 text-slate-400 p-1" type="text" name="categoryName" id="categoryName" placeholder="category name">
+                </div>
+                <div class="flex flex-col gap-y-2">
+                    <label class="text-slate-400 text-xs" for="categoryDescription">categoryDescription</label>
+                    <textarea class="rounded-lg bg-transparent border border-slate-500 text-slate-400 p-1" name="categoryDescription" id="categoryDescription" placeholder="category description"></textarea>
+                </div>
+                <div class="flex flex-row gap-x-2">
+                    <button class=" flex-1 border border-slate-400 text-slate-200 rounded-xl p-2" type="submit">cancel</button>
+                    <button class=" flex-1 bg-slate-400 text-slate-200 rounded-xl p-2" type="reset">add new category</button>
+                </div>
+            </form>
+        </div>
+
+        <div class=" container max-w-screen-sm mx-auto flex flex-col gap-y-2 mb-8">
+            <div class="text-xl text-slate-300 rounded-xl"  >
+                <h2 class="mb-3">add new category</h2>
+                <form class="flex flex-col gap-y-3 bg-slate-700 p-4 rounded-xl">
+                    <div class="flex flex-col gap-y-2">
+                        <label class="text-slate-400 text-xs" for="productsName">products title</label>
+                        <input class="w-44 rounded-lg bg-transparent border border-slate-500 text-slate-400 p-1" type="text" name="categoryName" id="productsName" placeholder="products title">
+                    </div>
+                    <div class="flex flex-col gap-y-2">
+                        <label class="text-slate-400 text-xs" for="Quantity">Quantity</label>
+                        <input class="w-44 rounded-lg bg-transparent border border-slate-500 text-slate-400 p-1" type="number" name="categoryName" id="Quantity" placeholder="Quantity">
+                    </div >
+                    <div class="flex flex-col gap-y-2">
+                        <label for="productsCategory">category</label>
+                        <select class="bg-transparent rounded-xl" name="productsCategory" id="productsCategory">
+                            <option value="" disabled selected>select a category</option>
+                            <option value="react.js"  >react.js</option>
+                            <option value="next.js"  >next.js</option>
+                            <option value="vue.js"  >vue.js</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-row gap-x-2">
+                        <button class=" flex-1 bg-slate-400 text-slate-200 rounded-xl p-2" type="reset">add new products</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class=" flex flex-col gap-y-6">
+            <h2 class="mb-3 text-slate-300">added products</h2>
+
+            <div class="flex flex-row justify-between">
+                <span class="text-slate-300">sort</span>
+                <select class="bg-transparent rounded-xl">
+                    <option value="" disabled selected>select a product</option>
+                    <option value="" disabled selected>select a product</option>
+                    <option value="" disabled selected>select a product</option>
+                </select>
+            </div>
+
+            <div class="flex flex-row justify-between">
+                <span class="text-slate-300">search</span>
+                <input class="bg-transparent rounded-xl" type="search" placeholder="search products">
+            </div>
+
+            <div class="flex flex-col gap-y-4 justify-start text-slate-300">
+                <div class="flex flex-row justify-between">
+                    <span>folan</span>
+                    <div class="flex flex-row gap-x-4">
+                        <span>1381/1/1</span>
+                        <span class="border border-slate-400 pr-3 pl-3 rounded-xl" >back end</span>
+                        <span class="bg-slate-500 w-7 h-7 text-zinc-50 border-solid border-2 rounded-full text-center">10</span>
+                        <span>delete</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<script type="module" src="/src/js/app.js"></script>
+</body>
+</html>
