@@ -1,7 +1,17 @@
 import Storage from "/inventory%20app/src/js/storage.js";
+import categoryView  from "/inventory%20app/src/js/categoryview.js";
+import productView  from "/inventory%20app/src/js/productview.js";
 
-Storage.saveCategories()
+document.addEventListener("DOMContentLoaded", function() {
+    categoryView.setApp()
+    categoryView.createCategory()
 
-// Storage.getAllCategories()
+    productView.setApp()
+    productView.createProduct()
+
+})
+
+
+
 
 // Storage.test()
