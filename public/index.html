@@ -14,8 +14,9 @@
     </div>
 
     <div class=" container max-w-screen-sm mx-auto flex flex-col gap-y-2 pb-20">
-        <div class="text-xl text-slate-300 mb-5 " >
-            <h2 class="mb-3">add new category</h2>
+        <button id="categoryToggle" class="self-start text-slate-400">add new category?</button>
+        <div id="categoryModal" class="text-xl text-slate-300 mb-5 hidden" >
+            <h2 class="mb-3" >add new category</h2>
             <form id="categoryForm" class="flex flex-col gap-y-3 bg-slate-700 p-4 rounded-xl">
                 <div class="flex flex-col gap-y-2">
                     <label class="text-slate-400 text-xs" for="categoryName">category title</label>
@@ -26,7 +27,7 @@
                     <textarea class="rounded-lg bg-transparent border border-slate-500 text-slate-400 p-1" name="categoryDescription" id="categoryDescription" placeholder="category description"></textarea>
                 </div>
                 <div class="flex flex-row gap-x-2">
-                    <button class=" flex-1 border border-slate-400 text-slate-200 rounded-xl p-2" type="reset">cancel</button>
+                    <button id="categoryCancel" class=" flex-1 border border-slate-400 text-slate-200 rounded-xl p-2" type="reset">cancel</button>
                     <button id="CategorySubmit" class=" flex-1 bg-slate-400 text-slate-200 rounded-xl p-2" type="submit">add new category</button>
                 </div>
             </form>
@@ -34,7 +35,7 @@
 
         <div class=" container max-w-screen-sm mx-auto flex flex-col gap-y-2 mb-8">
             <div class="text-xl text-slate-300 rounded-xl"  >
-                <h2 class="mb-3">add new category</h2>
+                <h2 class="mb-3">add new product</h2>
                 <form class="flex flex-col gap-y-3 bg-slate-700 p-4 rounded-xl">
                     <div class="flex flex-col gap-y-2">
                         <label class="text-slate-400 text-xs" for="productsName">products title</label>
@@ -63,18 +64,18 @@
         <div class=" flex flex-col gap-y-6">
             <h2 class="mb-3 text-slate-300">added products</h2>
 
-            <div class="flex flex-row justify-between">
-                <span class="text-slate-300">sort</span>
-                <select class="bg-transparent rounded-xl">
-                    <option value="" disabled selected>select a product</option>
-                    <option value="" disabled selected>select a product</option>
-                    <option value="" disabled selected>select a product</option>
+            <div class="flex flex-row justify-between text-slate-300">
+                <span class="">sort</span>
+                <select id="productsSort" class="bg-transparent rounded-xl">
+                    <option value="newest" selected>newest</option>
+                    <option value="oldest" >oldest</option>
                 </select>
             </div>
 
-            <div class="flex flex-row justify-between">
+            <div class="flex flex-row justify-between text-slate-300">
                 <span class="text-slate-300">search</span>
-                <input class="bg-transparent rounded-xl" type="search" placeholder="search products">
+                <label for="searchProduct"></label>
+                <input id="searchProduct" class="bg-transparent rounded-xl" type="search" placeholder="search products">
             </div>
 
             <div id="productsList" class="flex flex-col gap-y-4 justify-start text-slate-300">

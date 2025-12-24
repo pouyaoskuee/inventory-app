@@ -3,10 +3,15 @@ const Ctitle = document.getElementById('categoryName')
 const Cdescription = document.getElementById('categoryDescription')
 const categorySubmit = document.getElementById('CategorySubmit')
 const productsCategory = document.getElementById('productsCategory')
+const categoryToggle = document.getElementById('categoryToggle')
+const categoryModal = document.getElementById('categoryModal')
+const categoryCancel = document.getElementById('categoryCancel')
 
 class  categoryView  {
     constructor(){
         categorySubmit.addEventListener('click', (e)=> this.addNewCategory(e))
+        categoryToggle.addEventListener("click", this.toggleModal)
+        categoryCancel.addEventListener("click", this.toggleModal )
         this.categories = []
     }
 
@@ -25,6 +30,7 @@ class  categoryView  {
         this.createCategory()
         Ctitle.value = ''
         Cdescription.value = ''
+        this.toggleModal()
     }
 
     setApp(){
@@ -39,6 +45,10 @@ class  categoryView  {
 
         productsCategory.innerHTML = result
 
+    }
+
+    toggleModal(){
+        categoryModal.classList.toggle('hidden')
     }
 }
 

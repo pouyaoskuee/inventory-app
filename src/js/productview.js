@@ -5,12 +5,18 @@ const Quantity = document.getElementById('Quantity')
 const Category = document.getElementById('productsCategory')
 const productSubmit = document.getElementById('productSubmit')
 const productsList = document.getElementById('productsList')
+const searchProduct = document.getElementById('searchProduct')
+const productsSort = document.getElementById('productsSort')
+
+
 
 
 class ProductView {
     constructor(){
         let products = []
         productSubmit.addEventListener('click', (e) => this.addProduct(e))
+        searchProduct.addEventListener('input', e => this.searchProduct(e.target.value.trim()))
+        productsSort.addEventListener('change', e => this.sortProducts(e.target.value))
 
 
     }
@@ -55,6 +61,24 @@ class ProductView {
 
         })
         productsList.innerHTML = result
+    }
+
+    searchProduct(input){
+        this.products = Storage.getAllproducts()
+        const result = this.products.filter((c) => c.title.toLowerCase().includes(input.toLowerCase()))
+        this.products = result
+        this.createProduct()
+
+    }
+
+    sortProducts(value){
+        if(value==='oldest'){
+            this.products.sort((a, b) => a.createdAt > b.createdAt ? 1 : -1 )
+        }else if(value==='newest'){
+            this.products.sort((a, b) => a.createdAt < b.createdAt ? 1 : -1 )
+        }
+        console.log(this.products)
+        this.createProduct()
     }
 
 }

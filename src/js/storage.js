@@ -63,7 +63,7 @@ export default class Storage {
 
     static getAllproducts = () => {
         const getproducts= JSON.parse(localStorage.getItem('products')) || []
-        getproducts.sort((a, b) => a.createdAt - b.createdAt)
+        getproducts.sort((a, b) => a.createdAt > b.createdAt ? -1 : 1 )
         return getproducts
 
     }
