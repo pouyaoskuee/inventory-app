@@ -85,6 +85,10 @@ export default class Storage {
 
     }
 
+    static updateProduct(producttosave) {
+        localStorage.setItem('products', JSON.stringify(producttosave))
+    }
+
     static test(){
         localStorage.setItem('categories', JSON.stringify(category))
         localStorage.setItem('products', JSON.stringify(products))

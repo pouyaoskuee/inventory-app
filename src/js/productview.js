@@ -45,6 +45,9 @@ class ProductView {
 
     createProduct(){
         let result = ''
+
+
+
         this.products.forEach(item => {
             const selected = Storage.getAllCategories().find((c)=> parseInt(c.id)===parseInt(item.category))
             console.log(selected)
@@ -55,12 +58,29 @@ class ProductView {
                         <span>${new Date().toLocaleDateString('fa-IR')}</span>
                         <span class="border border-slate-400 pr-3 pl-3 rounded-xl" >${selected.title}</span>
                         <span class="bg-slate-500 w-7 h-7 text-zinc-50 border-solid border-2 rounded-full text-center">${item.quantity}</span>
-                        <span data-id="${item.id}" >delete</span>
+                        <span class="deleteBtns" data-id="${item.id}" >delete</span>
                     </div>
                 </div>`
 
         })
         productsList.innerHTML = result
+
+        const deleteBtn = document.querySelectorAll('.deleteBtns')
+        this.deleteBtnsArray = [...deleteBtn]
+        this.deleteBtnsArray.forEach(item => {
+            item.addEventListener('click', (e) => {
+                 const filteredProducts= this.products.filter((e) => e.id != item.dataset.id)
+                this.products = filteredProducts
+                Storage.updateProduct(filteredProducts)
+                this.createProduct()
+
+
+            })
+        })
+
+
+
+
     }
 
     searchProduct(input){
@@ -79,6 +99,10 @@ class ProductView {
         }
         console.log(this.products)
         this.createProduct()
+    }
+
+    deleteProduct(){
+        console.log('hello')
     }
 
 }
